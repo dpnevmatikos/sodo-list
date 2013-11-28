@@ -56,4 +56,10 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#createdDate").datepicker();
+        });
+    </script>
 }

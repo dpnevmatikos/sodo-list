@@ -7,8 +7,6 @@
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
-        @Styles.Render("~/Content/bootstrap.min.css")
-        @Styles.Render("~/Content/bootstrap.css")
     </head>
     <body>
         <header>
@@ -24,7 +22,6 @@
                         <ul id="menu">
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("My Sodos", "Index", "Todo")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                         </ul>
                     </nav>
                 </div>
@@ -45,6 +42,8 @@
         </footer>
 
         @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Styles.Render("~/Content/themes/base/css", "~/Content/css")
         @RenderSection("scripts", required: false)
     </body>
 </html>

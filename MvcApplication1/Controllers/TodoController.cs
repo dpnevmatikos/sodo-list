@@ -20,12 +20,15 @@ namespace MvcApplication1.Controllers
         public ActionResult Index()
         {
             string s = User.Identity.Name;
-            return View(db.Todos.ToList());
+            var list = db.Todos.Where(t => t.username == User.Identity.Name).ToList();
+            
+            //return View(db.Todos.ToList());
+            return View(list);
         }
 
         //
         // GET: /Todo/Details/5
-
+        [Authorize]
         public ActionResult Details(int id = 0)
         {
             Todo todo = db.Todos.Find(id);
@@ -38,7 +41,7 @@ namespace MvcApplication1.Controllers
 
         //
         // GET: /Todo/Create
-
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -48,6 +51,7 @@ namespace MvcApplication1.Controllers
         // POST: /Todo/Create
 
         [HttpPost]
+        [Authorize]
         public ActionResult Create(Todo todo)
         {
             if (ModelState.IsValid)
@@ -63,13 +67,20 @@ namespace MvcApplication1.Controllers
 
         //
         // GET: /Todo/Edit/5
-
+        [Authorize]
         public ActionResult Edit(int id = 0)
         {
             Todo todo = db.Todos.Find(id);
             if (todo == null)
             {
                 return HttpNotFound();
+            }
+            else
+            {
+                if (todo.username != User.Identity.Name)
+                {
+                    return RedirectToAction("Index");
+                }
             }
             return View(todo);
         }
@@ -78,6 +89,7 @@ namespace MvcApplication1.Controllers
         // POST: /Todo/Edit/5
 
         [HttpPost]
+        [Authorize]
         public ActionResult Edit(Todo todo)
         {
             if (ModelState.IsValid)
@@ -91,7 +103,7 @@ namespace MvcApplication1.Controllers
 
         //
         // GET: /Todo/Delete/5
-
+        [Authorize]
         public ActionResult Delete(int id = 0)
         {
             Todo todo = db.Todos.Find(id);
@@ -104,7 +116,7 @@ namespace MvcApplication1.Controllers
 
         //
         // POST: /Todo/Delete/5
-
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
