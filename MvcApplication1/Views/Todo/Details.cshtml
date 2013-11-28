@@ -1,0 +1,43 @@
+﻿@model MvcApplication1.Models.Todo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Todo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.note)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.note)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.createdDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.createdDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isCompleted)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isCompleted)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,59 @@
+﻿@model MvcApplication1.Models.Todo
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Todo</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.title)
+            @Html.ValidationMessageFor(model => model.title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.note)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.note)
+            @Html.ValidationMessageFor(model => model.note)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.createdDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.createdDate)
+            @Html.ValidationMessageFor(model => model.createdDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.isCompleted)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.isCompleted)
+            @Html.ValidationMessageFor(model => model.isCompleted)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
