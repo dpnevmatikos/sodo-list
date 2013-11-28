@@ -7,12 +7,14 @@
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
+        @Styles.Render("~/Content/bootstrap.min.css")
+        @Styles.Render("~/Content/bootstrap.css")
     </head>
     <body>
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                    <p class="site-title">@Html.ActionLink("Sodo List", "Index", "Home")</p>
                 </div>
                 <div class="float-right">
                     <section id="login">
@@ -37,7 +39,7 @@
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                    <p>&copy; @DateTime.Now.Year - Dimitris Pnevmatikos</p>
                 </div>
             </div>
         </footer>
