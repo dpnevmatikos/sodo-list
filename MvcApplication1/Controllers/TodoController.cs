@@ -16,9 +16,10 @@ namespace MvcApplication1.Controllers
 
         //
         // GET: /Todo/
-
+        [Authorize]
         public ActionResult Index()
         {
+            string s = User.Identity.Name;
             return View(db.Todos.ToList());
         }
 
@@ -51,6 +52,7 @@ namespace MvcApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
+                todo.username = User.Identity.Name;
                 db.Todos.Add(todo);
                 db.SaveChanges();
                 return RedirectToAction("Index");

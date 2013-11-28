@@ -22,5 +22,7 @@ namespace MvcApplication1.Models
 
         [Display(Name = "Completed")]
         public bool isCompleted { get; set; }
+
+        public string username { get; set; }
     }
 }
